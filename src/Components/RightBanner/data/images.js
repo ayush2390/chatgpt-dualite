@@ -1,0 +1,5 @@
+const images = {
+    toggleswitchicon: `https://s3-alpha-sig.figma.com/img/7a19/885c/4f8d5caf45c524a40a5c354a1a1f17cd?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OI6W05yzxu6T~nQutyT9E9nmRxlaLAGYePqjEOsWG0GnKCeiu1uUnmoTygQSsgqUbwFvFrnCOLDSrh7WQAW3gRZypSwgYReHOknPa51laIljrN6BTfzr3zfXVllQ8R1FiLv-snvucm6MydKXWgTK0yP3fBu2CTccZgDd5krtTAJQ1Uof-HlhYzUyPLfPDh76pbkWp5W6EFko-Y9y6t2u3CC~XtzKlyU5SCyhhxSIS4y24hKoiQnnH1M3zXrH5-hmWgZesRPszqcq6Q8lD0XQ-7UvivvLEV6ES6zBW9djagAaNlWRmRWSQ4dXups7rOJjkXJdjrJS4OiOqXo30AoXDA__`,
+  };
+  export default images;
+  
