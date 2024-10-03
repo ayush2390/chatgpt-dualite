@@ -3,7 +3,9 @@ import "./css/style.css";
 import InputBar from "../InputBar/InputBar"; // Import the InputBar component
 import texts from "./data/texts";
 import images from "./data/images";
-import { getChatResponse } from "../../openaiService";
+import { marked } from "marked";
+import ReactMarkdown from "react-markdown";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 const ChatBox = ({
   aiAssistantAvatar = images.aiAssistantAvatar,
   userProfileIcon = images.userProfileIcon,
@@ -14,34 +16,44 @@ const ChatBox = ({
     { sender: "ai", text: aiGreetingMessage, avatar: aiAssistantAvatar },
   ]);
 
-  const handleSendMessage = async(userMessage) => {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+  const handleSendMessage = async (userMessage) => {
     // Add user message to the chat
     const userMessageObject = {
       sender: "user",
       text: userMessage,
       avatar: userProfileIcon,
     };
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      userMessageObject,
+      // aiResponseObject,
+    ]);
+
     try {
-      const aiResponse = await getChatResponse(userMessage);
+      const result = await model.generateContent(userMessage);
+      const response = await result.response;
+      const markdownText = await response.text();
+      const plainText = marked
+        .parse(markdownText, { headerIds: false, mangle: false })
+        .replace(/(<([^>]+)>)/gi, ""); // Parse and remove HTML tags
+
       const aiResponseObject = {
         sender: "ai",
-        text: aiResponse,
+        text: plainText,
         avatar: aiAssistantAvatar1,
       };
-      console.log(aiResponseObject)
       setMessages((prevMessages) => [
         ...prevMessages,
-        userMessageObject,
+        // userMessageObject,
         aiResponseObject,
       ]);
-  } catch (error) {
-      console.error('Failed to get response:', error);
-  }
-    // Simulate AI response
-    
-
-    // Update the messages state
-    
+    } catch (error) {
+      console.error("Failed to get response:", error);
+    }
   };
 
   return (
@@ -58,7 +70,14 @@ const ChatBox = ({
               <img src={message.avatar} alt={`${message.sender} avatar`} />
             </div>
             <div className="message-text">
-              <span>{message.text}</span>
+              {/* <span>{message.text}</span> */}
+              {/* <span dangerouslySetInnerHTML={{ __html: message.text }} /> */}
+              {message.sender === "ai" ? (
+                // Render the AI response using ReactMarkdown
+                <ReactMarkdown>{message.text}</ReactMarkdown>
+              ) : (
+                <span>{message.text}</span>
+              )}
             </div>
           </div>
         ))}

@@ -1,9 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./css/style.css";
 
-import runAnimations, { allLinks, allFunctions } from "./scripts";
 import texts from "./data/texts";
 import images from "./data/images";
+import { useMessages } from "../../MessageContext";
+import { marked } from "marked";
+
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 //The data/*.js files are objects for default data, use the component with prop values of your choice/requirement
 
@@ -13,16 +16,39 @@ const Sidebar = ({
   faqIcon = images.faqIcon,
   logoutIcon = images.logoutIcon,
   newChatButtonText = texts.newChatButtonText,
-  todaySectionHeader = texts.todaySectionHeader,
-  recentChatTitle = texts.recentChatTitle,
-  previous7DaysHeader = texts.previous7DaysHeader,
-  gtaViceCityChatTitle = texts.gtaViceCityChatTitle,
-  GTA = texts.GTA,
-  nokia3310ChatTitle = texts.nokia3310ChatTitle,
+
   discordButtonText = texts.discordButtonText,
   faqsButtonText = texts.faqsButtonText,
   logOutButtonText = texts.logOutButtonText,
 }) => {
+  const { messages } = useMessages();
+  const [query, setQuery] = useState("");
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const genAI = new GoogleGenerativeAI(apiKey);
+
+  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  useEffect(() => {
+    const getSummary = async () => {
+      if (!messages.length || messages.length > 1) return;
+      try {
+        const result = await model.generateContent(
+          `Summarise this query of user in 3-4 words: ${
+            messages[messages.length - 1]
+          }`
+        );
+        const response = await result.response;
+        const markdownText = await response.text();
+        const plainText = marked
+          .parse(markdownText, { headerIds: false, mangle: false })
+          .replace(/(<([^>]+)>)/gi, ""); // Parse and remove HTML tags
+        setQuery(plainText);
+      } catch (error) {
+        console.error("Failed to get response:", error);
+      }
+    };
+    getSummary();
+  }, [messages]);
+  const chatTitlesArray = [query];
   return (
     <div className="wrapper-div-3701139 ">
       <div className=" sidebar-container">
@@ -40,41 +66,20 @@ const Sidebar = ({
           </div>
         </section>
         {/* TOday1 */}
-        <section className=" today-section">
-          <div className=" today-header">
-            <span className="today-header-0 ">{todaySectionHeader}</span>
-          </div>
-          <div className=" today-chat-item">
-            <div className=" today-chat-content">
-              <div className=" today-chat-title">
-                <span className="today-chat-title-0 ">{recentChatTitle}</span>
-              </div>
-              <div className=" options-menu">
-                <div className=" options-dot-1 pos-abs"></div>
-                <div className=" options-dot-2 pos-abs"></div>
-                <div className=" options-dot-3 pos-abs"></div>
-              </div>
-            </div>
-          </div>
-        </section>
+
         {/* Previous1 */}
-        <section className=" previous-chats-section">
-          <div className=" previous-chats-header">
-            <span className="previous-chats-header-0 ">{previous7DaysHeader}</span>
-          </div>
-          <div className=" previous-chats-list">
-            <div className=" previous-chat-item-1">
-              <div className=" previous-chat-title-1">
-                <span className="previous-chat-title-1-0 ">{gtaViceCityChatTitle}</span>
+        <section className="previous-chats-section">
+          <div className="previous-chats-list">
+            {chatTitlesArray.map((title, index) => (
+              <div key={index} className="previous-chat-item-1">
+                <div className="previous-chat-title-1">
+                  <span className="previous-chat-title-1-0">{title}</span>
+                </div>
               </div>
-            </div>
-            <div className=" previous-chat-item-2">
-              <div className=" previous-chat-title-2">
-                <span className="previous-chat-title-2-0 ">{nokia3310ChatTitle}</span>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
+
         {/* Frame 431 */}
         <section className=" sidebar-footer">
           <div className=" discord-button">

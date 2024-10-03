@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./css/style.css";
 import images from "./data/images";
 import texts from "./data/texts";
-
+import { useMessages } from "../../MessageContext";
 const InputBar = ({
   addAttachmentIcon = images.addAttachmentIcon,
   messagePlaceholder = texts.messagePlaceholder,
@@ -10,6 +10,7 @@ const InputBar = ({
   onSendMessage, // callback to send the message
 }) => {
   const [userInput, setUserInput] = useState("");
+  const { addMessage } = useMessages();
 
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
@@ -19,6 +20,7 @@ const InputBar = ({
     e.preventDefault();
     if (userInput.trim()) {
       onSendMessage(userInput); // Trigger the callback passed from ChatBox
+      addMessage(userInput);
       setUserInput(""); // Clear the input field
     }
   };
@@ -36,15 +38,15 @@ const InputBar = ({
               />
             </div>
             <div className="text-input-wrapper">
-            <div className=" text-input-placeholder">
-              <input
-                type="text"
-                value={userInput}
-                onChange={handleInputChange}
-                placeholder={messagePlaceholder}
-                className="text-input-placeholder-0 "
-              />
-            </div>
+              <div className=" text-input-placeholder">
+                <input
+                  type="text"
+                  value={userInput}
+                  onChange={handleInputChange}
+                  placeholder={messagePlaceholder}
+                  className="text-input-placeholder-0 "
+                />
+              </div>
             </div>
           </div>
           <div className="send-button-container" onClick={handleSendMessage}>

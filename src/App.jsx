@@ -1,32 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 
-import HeaderComponent from "./Components/HeaderComponent/HeaderComponent";
-import Sidebar from "./Components/Sidebar/Sidebar";
-import RightBanner from "./Components/RightBanner/RightBanner";
-import ChatBox from "./Components/ChatBox/ChatBox";
-import InputBar from "./Components/InputBar/InputBar";
-import "./App.css"
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ChatWindow from "./ChatWindow";
+import HomePage from "./Components/HomePage/HomePage";
 
 // The App.jsx is a wrapper only, just you can copy the component folder & Name it accordingly
 
 const App = () => {
   return (
-    <>
-      <HeaderComponent />
-      <div className="app-container">
-        <div className="left-container">
-        <Sidebar />
-        </div>
-        <div className="right-container">
-          <RightBanner />
-          <ChatBox />
-          {/* <InputBar /> */}
-        </div>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/chat" element={<ChatWindow />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
 ReactDOM.createRoot(document.getElementById("dualite-root")).render(<App />);
-

@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./css/style.css";
 
-import runAnimations, { allLinks, allFunctions } from "./scripts";
 import texts from "./data/texts";
 import images from "./data/images";
 

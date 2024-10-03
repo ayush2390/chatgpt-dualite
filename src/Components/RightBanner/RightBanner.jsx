@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./css/style.css";
 
-import runAnimations, { allLinks, allFunctions } from "./scripts";
 import texts from "./data/texts";
 import images from "./data/images";
 
 //The data/*.js files are objects for default data, use the component with prop values of your choice/requirement
 
-const CommandPromptHeaderComponent = ({
+const RightBanner = ({
   toggleswitchicon = images.toggleswitchicon,
   chatgptversioninfo = texts.chatgptversioninfo,
   copyrightinfo = texts.copyrightinfo,
@@ -37,4 +36,4 @@ const CommandPromptHeaderComponent = ({
     </div>
   );
 };
-export default CommandPromptHeaderComponent;
+export default RightBanner;

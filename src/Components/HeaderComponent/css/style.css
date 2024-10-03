@@ -33,7 +33,8 @@
 .wrapper-div-370175 {
   position: relative;
   max-width: 1440px;
-  margin: auto;
+  /* margin: auto; */
+  margin-left: 33px;
   padding: 0px;
   box-sizing: border-box;
   background-color: #161622;
@@ -53,11 +54,8 @@
   align-items: center;
   align-content: space-between;
   padding: 32px 32px 32px 32px;
-  box-shadow:
-    inset 0 0 0 0px #a4a4a4ff,
-    inset 0 0 0.5px 0 #a4a4a4ff,
-    inset 0 0px 0 0 #a4a4a4ff,
-    inset 0px 0 0 0 #a4a4a4ff;
+  box-shadow: inset 0 0 0 0px #a4a4a4ff, inset 0 0 0.5px 0 #a4a4a4ff,
+    inset 0 0px 0 0 #a4a4a4ff, inset 0px 0 0 0 #a4a4a4ff;
   border-left: 0px solid #a4a4a4ff;
   border-right: 0px solid #a4a4a4ff;
   border-top: 0px solid #a4a4a4ff;
@@ -102,8 +100,7 @@
   transform: rotate(0deg);
   text-align: left;
   line-height: 0px;
-  text-shadow:
-    0px 0px 14.031389236450195px rgba(0, 255, 189, 1),
+  text-shadow: 0px 0px 14.031389236450195px rgba(0, 255, 189, 1),
     0px 1.275580883026123px 15.306970596313477px rgba(0, 255, 189, 1);
 }
 .logo-text-0 {
