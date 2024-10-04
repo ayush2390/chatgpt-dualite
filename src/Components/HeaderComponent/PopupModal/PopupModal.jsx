@@ -36,7 +36,7 @@ const PopupModal = ({
         {/* Frame 111 */}
         <section
           className=" cta-button-container pos-abs"
-          onClick={() => (window.location.href = "https://bit.ly/3TU6hiy")}
+          onClick={() => window.open("https://bit.ly/3TU6hiy", "_blank")}
         >
           <div className=" cta-button-text">
             <span className="cta-button-text-0 ">{ctabuttontext}</span>

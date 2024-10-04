@@ -30,28 +30,6 @@ const Sidebar = ({
     triggerNewChat(); // Trigger the new chat action
   };
 
-  // const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-  // useEffect(() => {
-  //   const getSummary = async () => {
-  //     if (!messages.length || messages.length > 1) return;
-  //     try {
-  //       const result = await model.generateContent(
-  //         `Summarise this query of user in 3-4 words: ${
-  //           messages[messages.length - 1]
-  //         }`
-  //       );
-  //       const response = await result.response;
-  //       const markdownText = await response.text();
-  //       const plainText = marked
-  //         .parse(markdownText, { headerIds: false, mangle: false })
-  //         .replace(/(<([^>]+)>)/gi, ""); // Parse and remove HTML tags
-  //       setQuery(plainText);
-  //     } catch (error) {
-  //       console.error("Failed to get response:", error);
-  //     }
-  //   };
-  //   getSummary();
-  // }, [messages]);
   const chatTitlesArray = [query];
   return (
     <div className="wrapper-div-3701139 ">
@@ -88,7 +66,7 @@ const Sidebar = ({
         <section className=" sidebar-footer">
           <div
             className=" discord-button"
-            onClick={() => (window.location.href = "https://bit.ly/3TU6hiy")}
+            onClick={() => window.open("https://bit.ly/3TU6hiy", "_blank")}
             style={{ cursor: "pointer" }}
           >
             <div className=" discord-icon">
