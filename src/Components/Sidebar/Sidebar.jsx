@@ -20,40 +20,44 @@ const Sidebar = ({
   discordButtonText = texts.discordButtonText,
   faqsButtonText = texts.faqsButtonText,
   logOutButtonText = texts.logOutButtonText,
+  onNewChatClick,
 }) => {
-  const { messages } = useMessages();
+  const { messages, triggerNewChat } = useMessages();
   const [query, setQuery] = useState("");
   const apiKey = import.meta.env.VITE_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);
+  const handleNewChatClick = () => {
+    triggerNewChat(); // Trigger the new chat action
+  };
 
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-  useEffect(() => {
-    const getSummary = async () => {
-      if (!messages.length || messages.length > 1) return;
-      try {
-        const result = await model.generateContent(
-          `Summarise this query of user in 3-4 words: ${
-            messages[messages.length - 1]
-          }`
-        );
-        const response = await result.response;
-        const markdownText = await response.text();
-        const plainText = marked
-          .parse(markdownText, { headerIds: false, mangle: false })
-          .replace(/(<([^>]+)>)/gi, ""); // Parse and remove HTML tags
-        setQuery(plainText);
-      } catch (error) {
-        console.error("Failed to get response:", error);
-      }
-    };
-    getSummary();
-  }, [messages]);
+  // const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  // useEffect(() => {
+  //   const getSummary = async () => {
+  //     if (!messages.length || messages.length > 1) return;
+  //     try {
+  //       const result = await model.generateContent(
+  //         `Summarise this query of user in 3-4 words: ${
+  //           messages[messages.length - 1]
+  //         }`
+  //       );
+  //       const response = await result.response;
+  //       const markdownText = await response.text();
+  //       const plainText = marked
+  //         .parse(markdownText, { headerIds: false, mangle: false })
+  //         .replace(/(<([^>]+)>)/gi, ""); // Parse and remove HTML tags
+  //       setQuery(plainText);
+  //     } catch (error) {
+  //       console.error("Failed to get response:", error);
+  //     }
+  //   };
+  //   getSummary();
+  // }, [messages]);
   const chatTitlesArray = [query];
   return (
     <div className="wrapper-div-3701139 ">
       <div className=" sidebar-container">
         {/* New chat1 */}
-        <section className=" new-chat-button">
+        <section className="new-chat-button" onClick={handleNewChatClick}>
           <div className=" new-chat-icon">
             <img
               src={`${newChatIcon}`}
@@ -73,7 +77,7 @@ const Sidebar = ({
             {chatTitlesArray.map((title, index) => (
               <div key={index} className="previous-chat-item-1">
                 <div className="previous-chat-title-1">
-                  <span className="previous-chat-title-1-0">{title}</span>
+                  <span className="previous-chat-title-1-0"></span>
                 </div>
               </div>
             ))}
@@ -82,7 +86,11 @@ const Sidebar = ({
 
         {/* Frame 431 */}
         <section className=" sidebar-footer">
-          <div className=" discord-button">
+          <div
+            className=" discord-button"
+            onClick={() => (window.location.href = "https://bit.ly/3TU6hiy")}
+            style={{ cursor: "pointer" }}
+          >
             <div className=" discord-icon">
               <img
                 src={`${discordIcon}`}
@@ -94,7 +102,7 @@ const Sidebar = ({
               <span className="discord-text-0 ">{discordButtonText}</span>
             </div>
           </div>
-          <div className=" faq-button">
+          {/* <div className=" faq-button">
             <div className=" faq-icon">
               <img
                 src={`${faqIcon}`}
@@ -105,8 +113,8 @@ const Sidebar = ({
             <div className=" faq-text">
               <span className="faq-text-0 ">{faqsButtonText}</span>
             </div>
-          </div>
-          <div className=" logout-button">
+          </div> */}
+          {/* <div className=" logout-button">
             <div className=" logout-icon">
               <img
                 src={`${logoutIcon}`}
@@ -117,7 +125,7 @@ const Sidebar = ({
             <div className=" logout-text">
               <span className="logout-text-0 ">{logOutButtonText}</span>
             </div>
-          </div>
+          </div> */}
         </section>
       </div>
     </div>

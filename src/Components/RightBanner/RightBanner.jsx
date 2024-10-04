@@ -25,13 +25,13 @@ const RightBanner = ({
             </div>
           </div>
         </section>
-        <div className=" toggle-switch">
+        {/* <div className=" toggle-switch">
           <img
             src={`${toggleswitchicon}`}
             className="pos-abs  image-div bg-no-repeat fill-parent bg-cover nodeBg-3701112 "
             alt="ToggleSwitchIcon"
           />{" "}
-        </div>
+        </div> */}
       </div>
     </div>
   );

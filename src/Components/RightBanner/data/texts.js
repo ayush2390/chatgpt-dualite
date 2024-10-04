@@ -1,5 +1,5 @@
 const texts = {
-  chatgptversioninfo: `ChatGPT [Version 04.0.22631.4169]`,
-  copyrightinfo: `(c) Dualite Technologies. All rights reserved.`,
+  chatgptversioninfo: `ChatGPT 2000`,
+  copyrightinfo: `Built with Dualite`,
 };
 export default texts;

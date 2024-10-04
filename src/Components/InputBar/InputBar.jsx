@@ -10,6 +10,7 @@ const InputBar = ({
   onSendMessage, // callback to send the message
 }) => {
   const [userInput, setUserInput] = useState("");
+  const [clicked, setClicked] = useState(false);
   const { addMessage } = useMessages();
 
   const handleInputChange = (e) => {
@@ -23,6 +24,10 @@ const InputBar = ({
       addMessage(userInput);
       setUserInput(""); // Clear the input field
     }
+    setClicked(true);
+    setTimeout(() => {
+      setClicked(false);
+    }, 150);
   };
 
   return (
@@ -30,13 +35,13 @@ const InputBar = ({
       <div className="chat-input-wrapper">
         <section className="chat-input-container">
           <div className="message-input-container">
-            <div className="add-icon">
+            {/* <div className="add-icon">
               <img
                 src={`${addAttachmentIcon}`}
                 className="pos-abs image-div bg-no-repeat fill-parent bg-cover nodeBg-3701179"
                 alt="Add attachment icon"
               />
-            </div>
+            </div> */}
             <div className="text-input-wrapper">
               <div className=" text-input-placeholder">
                 <input
@@ -49,7 +54,10 @@ const InputBar = ({
               </div>
             </div>
           </div>
-          <div className="send-button-container" onClick={handleSendMessage}>
+          <div
+            className={`send-button-container ${clicked ? "clicked" : ""}`}
+            onClick={handleSendMessage}
+          >
             <div className="send-button-text">
               <span className="send-button-text-0">{sendButtonLabel}</span>
             </div>

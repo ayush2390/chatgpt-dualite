@@ -34,13 +34,14 @@
   --image-0: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAKCAYAAAC5Sw6hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAD+SURBVHgBpc+xTsMwEAbg364nGgQTLCy8QQYeIOw8TPsEwBsFhJgzorIYBjZEKtE2VCBMaZo0wTa5IDpUaeWqv2T5Trr7pGP+yVlgOAJskcfezYUgxGvvnbe9XedFrTU+3pO/xtrI94N9QTUhB4dHTkAyjOu/imI7rWMZhYoaAceM3wbIsxSTyadiVncZ4+ofcYKSYR9ZNkOWz2C1vmSwUt7fhstzK6G8Wh4RQsCP7sCaB3hCyuhaNc03Qi/PTyiKAmWZS2bQXQc0QtX9GA36FTAHM/aUCRHLXhjDITWUTr8xxmt9TlHOrzhvdVyBBcQNomn6BXoUDkh5txlC+QW2xYjf/uEA9QAAAABJRU5ErkJggg==);
   --image-1: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAKCAYAAABSfLWiAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACHSURBVHgBpc/BDUZAEIbhbyeSv42/AhxkzwpAC0qhBR0oQgHr7qADfYjsMgmJCGJ4L5vMJk9mVBglsSXEWCML03eNgSCPAQVVbANLjh8DQXQcMBjo1EEQXX0w5OukxBdEshXhQQzdYY+QPXZ2ogjhthP3mIeXLVju62ygkdrXyNJfwdX2N1Uz28ckhxLbSSwAAAAASUVORK5CYII=);
   position: relative;
-  max-width: 1088px;
+  /* max-width: 1088px; */
+  width: 100%;
   margin: auto;
   padding: 0px;
   box-sizing: border-box;
 }
 .chat-input-wrapper {
-  max-width: 1088px;
+  /* max-width: 1088px; */
   width: 100%;
   box-sizing: border-box;
   min-height: 93px;
@@ -61,7 +62,7 @@
   border-bottom: 0px solid #a4a4a4ff;
 }
 .chat-input-container {
-  max-width: 1028px;
+  /* max-width: 1028px; */
   width: 100%;
   box-sizing: border-box;
   min-height: 52px;
@@ -78,6 +79,7 @@
 }
 .message-input-container {
   width: 872px;
+  width: 100%;
   height: 46px;
   opacity: 1;
   z-index: 0;
@@ -111,7 +113,7 @@
   overflow: hidden;
 }
 .text-input-wrapper {
-  max-width: 809.27px;
+  /* max-width: 809.27px; */
   width: 100%;
   box-sizing: border-box;
   min-height: 23px;
@@ -179,6 +181,7 @@
     inset -1.5927271842956543px -1.5927271842956543px 0px 0px
       rgba(74, 90, 107, 1);
 }
+
 .send-button-text {
   width: 58px;
   height: 13px;
@@ -191,7 +194,7 @@
 .send-button-text-0 {
   font-size: 23px;
 
-  line-height: 22.46218490600586px;
+  line-height: 14.46218490600586px;
 
   font-family: Pixelify Sans;
   font-weight: 500;
@@ -237,4 +240,8 @@
   transform: rotate(0deg);
   overflow: hidden;
   box-sizing: border-box;
+}
+
+.clicked {
+  transform: scale(0.95); /* Slightly shrink the button */
 }

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/style.css";
 
 import texts from "./data/texts";
 import images from "./data/images";
+import Draggable from "react-draggable";
+import "./css/PopupModal.css"; // Import the CSS styles
+import PopupModal from "./PopupModal/PopupModal";
 
 //The data/*.js files are objects for default data, use the component with prop values of your choice/requirement
 
@@ -11,6 +14,10 @@ const HeaderComponent = ({
   settingsGearIcon = images.settingsGearIcon,
   chatgptBrandName = texts.chatgptBrandName,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="wrapper-div-370175 ">
       <div className=" header-container">
@@ -24,12 +31,12 @@ const HeaderComponent = ({
             />{" "}
           </div>
           <div className=" logo-text">
-            <span className="logo-text-0 ">{chatgptBrandName}</span>
+            <span className="logo-text-0 ">{chatgptBrandName} </span>
           </div>
         </section>
         {/* Frame 11 */}
         <section className=" settings-container">
-          <div className=" settings-icon">
+          <div className=" settings-icon" onClick={toggleModal}>
             <img
               src={`${settingsGearIcon}`}
               className="pos-abs  image-div bg-no-repeat fill-parent bg-cover nodeBg-370180 "
@@ -38,6 +45,13 @@ const HeaderComponent = ({
           </div>
         </section>
       </div>
+      {isOpen && (
+        // <Draggable>
+        <div className="modal">
+          <PopupModal closeModal={toggleModal} />
+        </div>
+        // </Draggable>
+      )}
     </div>
   );
 };

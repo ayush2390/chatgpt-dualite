@@ -1,14 +1,12 @@
 .app-container {
   display: flex;
   flex-direction: row;
+  /* height: 100vh;
+  width: 100vw; */
 }
 
 .right-container {
   display: flex;
   flex-direction: column;
-  margin-right: 31px;
-}
-
-.left-container {
-  margin-left: 32px;
+  width: 100%;
 }

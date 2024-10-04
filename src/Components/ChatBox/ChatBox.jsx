@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css/style.css";
 import InputBar from "../InputBar/InputBar"; // Import the InputBar component
 import texts from "./data/texts";
@@ -6,6 +6,7 @@ import images from "./data/images";
 import { marked } from "marked";
 import ReactMarkdown from "react-markdown";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { useMessages } from "../../MessageContext";
 const ChatBox = ({
   aiAssistantAvatar = images.aiAssistantAvatar,
   userProfileIcon = images.userProfileIcon,
@@ -15,6 +16,19 @@ const ChatBox = ({
   const [messages, setMessages] = useState([
     { sender: "ai", text: aiGreetingMessage, avatar: aiAssistantAvatar },
   ]);
+  const { newChatTriggered } = useMessages();
+
+  useEffect(() => {
+    if (newChatTriggered) {
+      console.log("print"); // Log to console when new chat is triggered
+      const aiResponseObject = {
+        sender: "ai",
+        text: "How can I help you today?",
+        avatar: aiAssistantAvatar1,
+      };
+      setMessages([aiResponseObject]);
+    }
+  }, [newChatTriggered]);
 
   const apiKey = import.meta.env.VITE_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);

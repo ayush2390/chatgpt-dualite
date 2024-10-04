@@ -1,0 +1,203 @@
+/* Default classes */
+.pos-abs {
+  position: absolute;
+}
+.fill-parent {
+  width: 100%;
+  height: 100%;
+}
+.bg-contain {
+  background-size: contain;
+}
+.bg-cover {
+  background-size: cover;
+}
+.bg-auto {
+  background-size: auto;
+}
+.bg-crop {
+  background-size: 100% 100%;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+.pos-init {
+  top: 0px;
+  left: 0px;
+}
+.image-div {
+  background-color: transparent;
+  background-position: center;
+}
+/* Default classes end */
+.wrapper-div-20322706 {
+  --image-0: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAYAAAC5DOVpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACsSURBVHgBvZSBCYMwEEV/SwfoCI7gCBmhI2SUbtKO0A10k7pB3cCeeIHzPI4ohx8egt5PIv8TIFgdMSmO+L5XBKslEvEUu3RMC/tEMz+e7dm/ms3Y/m4yFtMzr/LhJoYG4i0WnvUgGtj6ECOfzNVUQdKm8AA87arNKSfT8Uu82pg6FICsRmMMlPilMj9LbQYY9cg1u8MpbXgAu+J3fLG3xgVLxHf1vq/wat/4B8GGWPZ06WR0AAAAAElFTkSuQmCC);
+  position: relative;
+  height: 336px;
+  width: 656px;
+  margin: auto;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.explore-card-wrapper {
+  width: 656px;
+  min-height: 336px;
+  opacity: 1;
+  z-index: 1;
+  transform: rotate(0deg);
+  background: linear-gradient(
+    179.9deg,
+    #151521ff 0%,
+    #302e4bff 45%,
+    #31304dff 66%,
+    #1b1b2bff 100%
+  );
+  border-left: 1px solid #a4a4a4ff;
+  border-right: 1px solid #a4a4a4ff;
+  border-top: 1px solid #a4a4a4ff;
+  border-bottom: 1px solid #a4a4a4ff;
+}
+.explore-card-title {
+  width: 584px;
+  height: 42px;
+  top: 72px;
+  left: 36px;
+  opacity: 1;
+  z-index: 0;
+  transform: rotate(0deg);
+  text-align: center;
+  line-height: 0px;
+}
+.explore-card-title-0 {
+  font-size: 31px;
+
+  line-height: 32px;
+
+  font-family: IBM Plex Mono;
+  font-weight: 700;
+
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #00ffbdff;
+}
+.explore-card-description {
+  width: 584px;
+  height: 42px;
+  top: 147px;
+  left: 36px;
+  opacity: 1;
+  z-index: 1;
+  transform: rotate(0deg);
+  text-align: center;
+  line-height: 0px;
+}
+.explore-card-description-0 {
+  font-size: 15px;
+
+  line-height: 16px;
+
+  font-family: IBM Plex Mono;
+  font-weight: 400;
+
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #ffffffff;
+}
+.close-button-container {
+  max-width: 37.24px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 32.58px;
+  top: 9px;
+  left: 611px;
+  opacity: 1;
+  z-index: 2;
+  transform: rotate(0deg);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 6px 9px 9px 9px;
+  background: #c0c0c0ff;
+  box-shadow: inset 4.654544830322266px 4.654544830322266px 0px 0px
+      rgba(223, 223, 223, 1),
+    inset -4.654544830322266px -4.654544830322266px 0px 0px
+      rgba(128, 128, 128, 1),
+    inset 2.327272415161133px 2.327272415161133px 0px 0px rgba(255, 255, 255, 1),
+    inset -2.327272415161133px -2.327272415161133px 0px 0px rgba(10, 10, 10, 1);
+}
+.close-button-icon-wrapper {
+  width: 18.62px;
+  height: 16.29px;
+  opacity: 1;
+  z-index: 0;
+  transform: rotate(0deg);
+  overflow: hidden;
+}
+.nodeBg-20322702 {
+  opacity: 1;
+  background-image: var(--image-0);
+}
+.close-button-icon {
+  width: 18.62px;
+  height: 16.29px;
+  top: 0px;
+  left: 0px;
+  opacity: 1;
+  z-index: 0;
+  transform: rotate(0deg);
+  overflow: hidden;
+}
+.cta-button-container {
+  width: 547px;
+  height: 52px;
+  top: 241px;
+  left: 54px;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 3;
+  transform: rotate(0deg);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 0px 0px 0px;
+  background: #bdced6ff;
+  box-shadow: inset -3.1854543685913086px -3.1854543685913086px 0px 0px
+      rgba(123, 132, 148, 1),
+    inset -1.5927271842956543px -1.5927271842956543px 0px 0px
+      rgba(74, 90, 107, 1),
+    inset 3.1854543685913086px 3.1854543685913086px 0px 0px
+      rgba(239, 255, 255, 1),
+    inset 1.5927271842956543px 1.5927271842956543px 0px 0px
+      rgba(173, 181, 198, 1),
+    inset -1.5927271842956543px -1.5927271842956543px 0px 0px
+      rgba(74, 90, 107, 1);
+}
+.cta-button-text {
+  width: 197px;
+  height: 13px;
+  opacity: 1;
+  z-index: 0;
+  transform: rotate(0deg);
+  text-align: center;
+  line-height: 0px;
+}
+.cta-button-text-0 {
+  font-size: 23px;
+
+  line-height: 22.46218490600586px;
+
+  font-family: Pixelify Sans;
+  font-weight: 500;
+
+  text-decoration: none;
+  text-transform: none;
+  white-space: pre-wrap;
+  color: #2f364dff;
+}
