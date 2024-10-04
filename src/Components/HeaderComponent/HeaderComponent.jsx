@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./css/style.css";
+import "./css/PopupModal.css";
 
 import texts from "./data/texts";
 import images from "./data/images";
-import Draggable from "react-draggable";
-import "./css/PopupModal.css"; // Import the CSS styles
 import PopupModal from "./PopupModal/PopupModal";
 
 //The data/*.js files are objects for default data, use the component with prop values of your choice/requirement

@@ -106,6 +106,7 @@
   color: #ffffffff;
 }
 .close-button-container {
+  cursor: pointer;
   max-width: 37.24px;
   width: 100%;
   box-sizing: border-box;
