@@ -30,26 +30,26 @@ const InputBar = ({
     }, 150);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && userInput.trim()) {
+      // Ensure input has text
+      handleSendMessage(e);
+    }
+  };
   return (
     <div className="wrapper-div-3701176">
       <div className="chat-input-wrapper">
         <section className="chat-input-container">
           <div className="message-input-container">
-            {/* <div className="add-icon">
-              <img
-                src={`${addAttachmentIcon}`}
-                className="pos-abs image-div bg-no-repeat fill-parent bg-cover nodeBg-3701179"
-                alt="Add attachment icon"
-              />
-            </div> */}
             <div className="text-input-wrapper">
               <div className=" text-input-placeholder">
                 <input
                   type="text"
                   value={userInput}
                   onChange={handleInputChange}
+                  onKeyDown={handleKeyPress} // Add this line to handle Enter key press
                   placeholder={messagePlaceholder}
-                  className="text-input-placeholder-0 "
+                  className="text-input-placeholder-0"
                 />
               </div>
             </div>
