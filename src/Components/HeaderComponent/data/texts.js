@@ -1,2 +1,2 @@
-const texts = { chatgptBrandName: `GPT 2000` };
+const texts = { chatgptBrandName: `ChatGPT` };
 export default texts;
