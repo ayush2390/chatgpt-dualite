@@ -1,2 +1,5 @@
-const texts = { messagePlaceholder: `Message ChatGPT`, sendButtonLabel: `SEND` };
+const texts = {
+  messagePlaceholder: `Message GPT 2000`,
+  sendButtonLabel: `SEND`,
+};
 export default texts;
