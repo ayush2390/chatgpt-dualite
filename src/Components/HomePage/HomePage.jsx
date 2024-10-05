@@ -42,7 +42,7 @@ const HomePage = () => {
           </div>
           <div className=" version-text-homepage version-home-homepage pos-abs">
             <span className="version-text-0-homepage ">
-              ChatGPT 2000{" "}
+              GPT 2000{" "}
               <a href="https://bit.ly/3TU6hiy" target="_blank">
                 [Built with Dualite]
               </a>
