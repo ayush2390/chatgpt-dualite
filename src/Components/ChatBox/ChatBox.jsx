@@ -8,10 +8,8 @@ import ReactMarkdown from "react-markdown";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useMessages } from "../../MessageContext";
 import image from "../../../assets/icon1.jpg"
+import image1 from "../../../assets/user.png"
 const ChatBox = ({
-  aiAssistantAvatar = images.aiAssistantAvatar,
-  userProfileIcon = images.userProfileIcon,
-  aiAssistantAvatar1 = images.aiAssistantAvatar1,
   aiGreetingMessage = texts.aiGreetingMessage,
 }) => {
   const [messages, setMessages] = useState([
@@ -40,7 +38,7 @@ const ChatBox = ({
     const userMessageObject = {
       sender: "user",
       text: userMessage,
-      avatar: userProfileIcon,
+      avatar: image1,
     };
     setMessages((prevMessages) => [
       ...prevMessages,
