@@ -7,6 +7,7 @@ import { useMessages } from "../../MessageContext";
 import { marked } from "marked";
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import image from "../../../assets/icon1.jpg"
 
 //The data/*.js files are objects for default data, use the component with prop values of your choice/requirement
 
@@ -38,7 +39,7 @@ const Sidebar = ({
         <section className="new-chat-button" onClick={handleNewChatClick}>
           <div className=" new-chat-icon">
             <img
-              src={`${newChatIcon}`}
+               src={image}
               className="pos-abs  image-div bg-no-repeat fill-parent bg-cover nodeBg-3701141 "
               alt="New chat icon"
             />{" "}
@@ -71,7 +72,7 @@ const Sidebar = ({
           >
             <div className=" discord-icon">
               <img
-                src={`${discordIcon}`}
+                 src={image}
                 className="pos-abs  image-div bg-no-repeat fill-parent bg-cover nodeBg-3701161 "
                 alt="Discord icon"
               />{" "}

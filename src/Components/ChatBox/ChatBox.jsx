@@ -7,6 +7,7 @@ import { marked } from "marked";
 import ReactMarkdown from "react-markdown";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useMessages } from "../../MessageContext";
+import image from "../../../assets/icon1.jpg"
 const ChatBox = ({
   aiAssistantAvatar = images.aiAssistantAvatar,
   userProfileIcon = images.userProfileIcon,
@@ -14,7 +15,7 @@ const ChatBox = ({
   aiGreetingMessage = texts.aiGreetingMessage,
 }) => {
   const [messages, setMessages] = useState([
-    { sender: "ai", text: aiGreetingMessage, avatar: aiAssistantAvatar },
+    { sender: "ai", text: aiGreetingMessage, avatar: image },
   ]);
   const { newChatTriggered } = useMessages();
 
@@ -24,7 +25,7 @@ const ChatBox = ({
       const aiResponseObject = {
         sender: "ai",
         text: "How can I help you today?",
-        avatar: aiAssistantAvatar1,
+        avatar: image,
       };
       setMessages([aiResponseObject]);
     }
@@ -58,7 +59,7 @@ const ChatBox = ({
       const aiResponseObject = {
         sender: "ai",
         text: plainText,
-        avatar: aiAssistantAvatar1,
+        avatar: image,
       };
       setMessages((prevMessages) => [
         ...prevMessages,

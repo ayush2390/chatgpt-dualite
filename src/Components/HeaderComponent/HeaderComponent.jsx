@@ -5,6 +5,7 @@ import "./css/PopupModal.css";
 import texts from "./data/texts";
 import images from "./data/images";
 import PopupModal from "./PopupModal/PopupModal";
+import image from "../../../assets/icon1.jpg"
 
 //The data/*.js files are objects for default data, use the component with prop values of your choice/requirement
 
@@ -24,7 +25,8 @@ const HeaderComponent = ({
         <section className=" logo-container">
           <div className=" logo-image">
             <img
-              src={`${chatgptLogo}`}
+              // src={`${chatgptLogo}`}
+              src={image}
               className="pos-abs  image-div bg-no-repeat fill-parent bg-cover nodeBg-370177 "
               alt="ChatGPT logo"
             />{" "}
@@ -37,7 +39,7 @@ const HeaderComponent = ({
         <section className=" settings-container">
           <div className=" settings-icon" onClick={toggleModal}>
             <img
-              src={`${settingsGearIcon}`}
+               src={image}
               className="pos-abs  image-div bg-no-repeat fill-parent bg-cover nodeBg-370180 "
               alt="Settings gear icon"
             />{" "}
